@@ -10,8 +10,8 @@ import { ICategory } from "../../interfaces";
 
 interface IProps {
   data: ICategory[];
-  selected: ICategory;
-  setSelected: (selected: ICategory) => void;
+  selected: { name: string; imageURL: string };
+  setSelected: (category: ICategory) => void;
 }
 
 export default function Select({ data, selected, setSelected }: IProps) {
@@ -30,7 +30,7 @@ export default function Select({ data, selected, setSelected }: IProps) {
           >
             <span className="block truncate">{selected.name}</span>
             <ChevronDownIcon
-              className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
+              className="absolute w-4 h-4 text-gray-500 -translate-y-1/2 pointer-events-none right-3 top-1/2"
               aria-hidden="true"
             />
           </ListboxButton>
@@ -68,7 +68,7 @@ export default function Select({ data, selected, setSelected }: IProps) {
                           "absolute inset-y-0 right-0 flex items-center pr-4"
                         )}
                       >
-                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                        <CheckIcon className="w-5 h-5" aria-hidden="true" />
                       </span>
                     ) : null}
                   </>
